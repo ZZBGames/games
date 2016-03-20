@@ -2,8 +2,6 @@
 // Created by mathbagu on 12/03/16.
 //
 
-#include <iostream>
-
 #include <zzbgames/rick/RickApplication.hpp>
 #include <zzbgames/rick/RickStates.hpp>
 #include <zzbgames/rick/RickTitleState.hpp>
@@ -17,9 +15,15 @@ namespace rick
 RickApplication::RickApplication()
     : m_window(),
       m_timePerFrame(sf::seconds(1.f / 60.f)),
+      m_configuration(),
       m_textureManager(),
       m_stateStack(RickContext(m_window, m_textureManager))
 {
+}
+
+void RickApplication::loadConfiguration()
+{
+    m_configuration.load("config/rickdangerous.cfg");
 }
 
 void RickApplication::loadTextures()
@@ -44,8 +48,7 @@ void RickApplication::registerStates()
     m_stateStack.registerState<RickTitleState>(RickStates::TITLE);
 }
 
-void
-RickApplication::render()
+void RickApplication::render()
 {
     m_window.clear();
 
@@ -54,15 +57,16 @@ RickApplication::render()
     m_window.display();
 }
 
-int
-RickApplication::run()
+int RickApplication::run()
 {
     registerStates();
     loadTextures();
+    loadConfiguration();
 
     m_stateStack.addPushEvent(RickStates::TITLE);
 
     m_window.create(sf::VideoMode(320, 200), "ZZBGames - Rick Dangerous");
+    m_window.setSize(sf::Vector2u(m_configuration.getWindowWidth(), m_configuration.getWindowHeight()));
 
     sf::Clock clock;
     sf::Time elapsedTime = sf::Time::Zero;
@@ -85,11 +89,17 @@ RickApplication::run()
         render();
     }
 
+    saveConfiguration();
+
     return 0;
 }
 
-void
-RickApplication::update(const sf::Time& time)
+void RickApplication::saveConfiguration() const
+{
+    m_configuration.save("config/rickdangerous.cfg");
+}
+
+void RickApplication::update(const sf::Time& time)
 {
     m_stateStack.update(time);
 }

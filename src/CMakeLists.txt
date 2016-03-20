@@ -5,6 +5,7 @@ set(RICK_SOURCES
     StateStackEventList.cpp
     rick/rickdangerous.cpp
     rick/RickApplication.cpp
+    rick/RickConfiguration.cpp
     rick/RickContext.cpp
     rick/RickState.cpp
     rick/RickStateStack.cpp

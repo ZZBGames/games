@@ -9,6 +9,7 @@ set(RICK_PATCH_VERSION "1")
 set(RICK_VERSION_STRING "${RICK_MAJOR_VERSION}.${RICK_MINOR_VERSION}.${RICK_PATCH_VERSION}")
 
 find_package(SFML)
+find_package(Rapidjson)
 
 if (NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE "RelWithDebInfo" CACHE STRING "Choose the type of build, options are: Debug Release RelWithDebInfo MinSizeRel." FORCE)
@@ -35,3 +36,4 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 add_subdirectory(src)
 add_subdirectory(res)
+add_subdirectory(config)

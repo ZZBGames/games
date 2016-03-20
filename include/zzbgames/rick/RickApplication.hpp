@@ -9,6 +9,7 @@
 #include <SFML/System/Time.hpp>
 #include <SFML/Window/Event.hpp>
 
+#include <zzbgames/rick/RickConfiguration.hpp>
 #include <zzbgames/rick/RickResources.hpp>
 #include <zzbgames/rick/RickStateStack.hpp>
 
@@ -32,6 +33,8 @@ public:
     int run();
 
 protected:
+    void loadConfiguration();
+
     void loadTextures();
 
     void processEvents();
@@ -40,12 +43,16 @@ protected:
 
     void registerStates();
 
+    void saveConfiguration() const;
+
     void update(const sf::Time& time);
 
 protected:
     sf::RenderWindow m_window;
 
     sf::Time m_timePerFrame;
+
+    RickConfiguration m_configuration;
 
     RickTextureManager m_textureManager;
 
