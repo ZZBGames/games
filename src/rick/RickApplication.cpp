@@ -28,7 +28,7 @@ void RickApplication::loadConfiguration()
 
 void RickApplication::loadTextures()
 {
-    m_textureManager.load(RickTextures::TITLE_SCREEN, "res/titleScreen.png");
+    m_textureManager.load(RickTextures::TITLE_SCREEN, "images/titleScreen.png");
 }
 
 void RickApplication::processEvents()
