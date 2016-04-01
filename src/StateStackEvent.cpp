@@ -22,16 +22,6 @@ StateStackEvent::Ptr StateStackEvent::createClearEvent()
     return StateStackEvent::Ptr(new StateStackEvent(Type::CLEAR));
 }
 
-const long& StateStackEvent::getStateId() const
-{
-    return m_stateId;
-}
-
-const StateStackEvent::Type& StateStackEvent::getType() const
-{
-    return m_type;
-}
-
 StateStackEvent::StateStackEvent(const Type& type)
     : StateStackEvent(type, -1)
 {
@@ -41,6 +31,16 @@ StateStackEvent::StateStackEvent(const Type& type, const long& stateId)
     : m_type(type),
       m_stateId(stateId)
 {
+}
+
+const long& StateStackEvent::getStateId() const
+{
+    return m_stateId;
+}
+
+const StateStackEvent::Type& StateStackEvent::getType() const
+{
+    return m_type;
 }
 
 }
