@@ -6,10 +6,9 @@
 #define RICKDANGEROUS_RICKTITLESTATE_HPP
 
 #include <SFML/Graphics/Sprite.hpp>
+#include <SFML/System/Time.hpp>
 
-#include <zzbgames/rick/RickContext.hpp>
 #include <zzbgames/rick/RickState.hpp>
-#include <zzbgames/rick/RickStateStack.hpp>
 
 namespace zzbgames
 {
@@ -36,6 +35,7 @@ public:
 
 protected:
     sf::Sprite m_backgroundSprite;
+    sf::Time m_elapsedTime;
 };
 
 }

@@ -17,6 +17,7 @@ namespace RickStates
 enum Id
 {
     TITLE,
+    HALL_OF_FAME
 };
 
 }

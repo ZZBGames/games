@@ -3,6 +3,7 @@
 //
 
 #include <zzbgames/rick/RickApplication.hpp>
+#include <zzbgames/rick/RickHallOfFameState.hpp>
 #include <zzbgames/rick/RickStates.hpp>
 #include <zzbgames/rick/RickTitleState.hpp>
 
@@ -29,6 +30,7 @@ void RickApplication::loadConfiguration()
 void RickApplication::loadTextures()
 {
     m_textureManager.load(RickTextures::TITLE_SCREEN, "images/titleScreen.png");
+    m_textureManager.load(RickTextures::HALL_OF_FAME_SCREEN, "images/hallOfFameScreen.png");
 }
 
 void RickApplication::processEvents()
@@ -46,6 +48,7 @@ void RickApplication::processEvents()
 void RickApplication::registerStates()
 {
     m_stateStack.registerState<RickTitleState>(RickStates::TITLE);
+    m_stateStack.registerState<RickHallOfFameState>(RickStates::HALL_OF_FAME);
 }
 
 void RickApplication::render()

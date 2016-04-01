@@ -1,4 +1,6 @@
 set(RICK_IMAGES
-    titleScreen.png)
+    images/hallOfFameScreen.png
+    images/tileset.png
+    images/titleScreen.png)
 
 install(FILES ${RICK_IMAGES} DESTINATION images)

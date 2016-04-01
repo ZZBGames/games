@@ -21,6 +21,7 @@ namespace RickTextures
 enum Id
 {
     TITLE_SCREEN,
+    HALL_OF_FAME_SCREEN
 };
 
 }

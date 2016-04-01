@@ -1,4 +1,5 @@
 set(RICK_SOURCES
+    ExceptionBuilder.cpp
     State.cpp
     StateStack.cpp
     StateStackEvent.cpp
@@ -7,6 +8,7 @@ set(RICK_SOURCES
     rick/RickApplication.cpp
     rick/RickConfiguration.cpp
     rick/RickContext.cpp
+    rick/RickHallOfFameState.cpp
     rick/RickState.cpp
     rick/RickStateStack.cpp
     rick/RickTitleState.cpp)

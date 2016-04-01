@@ -10,6 +10,8 @@
 #include <memory>
 #include <string>
 
+#include <zzbgames/ExceptionBuilder.hpp>
+
 namespace zzbgames
 {
 
@@ -46,7 +48,7 @@ void ResourceManager<ID, RESOURCE>::load(const ID& id, const std::string& filena
 {
     std::unique_ptr<RESOURCE> resource(new RESOURCE());
     if (!resource->loadFromFile(filename))
-        throw std::ios_base::failure("Failed to load resource " + filename);
+        throw ExceptionBuilder::iosFailureException("Failed to load resource ", filename);
 
     m_resources.insert(std::make_pair(id, std::move(resource)));
 }
