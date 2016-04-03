@@ -9,6 +9,11 @@
 namespace zzbgames
 {
 
+std::invalid_argument ExceptionBuilder::invalidArgumentException(const std::string& message)
+{
+    return std::invalid_argument(message);
+}
+
 std::ios_base::failure ExceptionBuilder::iosFailureException(const std::string& message, const std::string filename)
 {
     std::ostringstream oss;

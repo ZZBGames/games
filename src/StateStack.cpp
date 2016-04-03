@@ -76,6 +76,7 @@ void StateStack::update(const sf::Time& time)
         if (!state->update(time))
             break;
 
+    processPendingEvents();
 }
 
 }

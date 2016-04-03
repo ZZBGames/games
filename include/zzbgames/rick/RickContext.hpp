@@ -7,6 +7,7 @@
 
 #include <SFML/Graphics/RenderWindow.hpp>
 
+#include <zzbgames/rick/RickHighscoreList.hpp>
 #include <zzbgames/rick/RickResources.hpp>
 
 namespace zzbgames
@@ -18,7 +19,7 @@ namespace rick
 class RickContext
 {
 public:
-    RickContext(sf::RenderWindow& window, RickTextureManager& textureManager);
+    RickContext(sf::RenderWindow& window, RickTextureManager& textureManager, RickHighscoreList& highscores);
 
     RickContext(const RickContext& context) = default;
 
@@ -26,12 +27,16 @@ public:
 
     RickContext& operator=(const RickContext& context) = delete;
 
+    RickHighscoreList& getHighscores();
+
     RickTextureManager& getTextureManager();
 
     sf::RenderWindow& getWindow();
 
 protected:
     sf::RenderWindow& m_window;
+
+    RickHighscoreList& m_highscores;
 
     RickTextureManager& m_textureManager;
 };

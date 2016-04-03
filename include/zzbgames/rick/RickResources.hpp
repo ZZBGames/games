@@ -20,6 +20,7 @@ namespace RickTextures
 
 enum Id
 {
+    TILESET,
     TITLE_SCREEN,
     HALL_OF_FAME_SCREEN
 };

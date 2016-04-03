@@ -17,8 +17,9 @@ RickApplication::RickApplication()
     : m_window(),
       m_timePerFrame(sf::seconds(1.f / 60.f)),
       m_configuration(),
+      m_highscores(8),
       m_textureManager(),
-      m_stateStack(RickContext(m_window, m_textureManager))
+      m_stateStack(RickContext(m_window, m_textureManager, m_highscores))
 {
 }
 
@@ -27,8 +28,21 @@ void RickApplication::loadConfiguration()
     m_configuration.load("config/rickdangerous.cfg");
 }
 
+void RickApplication::loadHighscores()
+{
+    try
+    {
+        m_highscores.load("config/highscores.cfg");
+    }
+    catch (std::exception& exc)
+    {
+        m_highscores.addDefaultHighscores();
+    }
+}
+
 void RickApplication::loadTextures()
 {
+    m_textureManager.load(RickTextures::TILESET, "images/tileset.png");
     m_textureManager.load(RickTextures::TITLE_SCREEN, "images/titleScreen.png");
     m_textureManager.load(RickTextures::HALL_OF_FAME_SCREEN, "images/hallOfFameScreen.png");
 }
@@ -63,8 +77,9 @@ void RickApplication::render()
 int RickApplication::run()
 {
     registerStates();
-    loadTextures();
     loadConfiguration();
+    loadHighscores();
+    loadTextures();
 
     m_stateStack.addPushEvent(RickStates::TITLE);
 
@@ -93,6 +108,7 @@ int RickApplication::run()
     }
 
     saveConfiguration();
+    saveHighscores();
 
     return 0;
 }
@@ -100,6 +116,11 @@ int RickApplication::run()
 void RickApplication::saveConfiguration() const
 {
     m_configuration.save("config/rickdangerous.cfg");
+}
+
+void RickApplication::saveHighscores() const
+{
+    m_highscores.save("config/highscores.cfg");
 }
 
 void RickApplication::update(const sf::Time& time)

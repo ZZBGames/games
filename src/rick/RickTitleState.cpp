@@ -14,10 +14,9 @@ namespace rick
 
 RickTitleState::RickTitleState(RickStateStack& stateStack, RickContext& context)
     : RickState(stateStack, context),
-      m_backgroundSprite(),
+      m_backgroundSprite(m_context.getTextureManager().getResource(RickTextures::TITLE_SCREEN)),
       m_elapsedTime(sf::Time::Zero)
 {
-    m_backgroundSprite.setTexture(m_context.getTextureManager().getResource(RickTextures::TITLE_SCREEN));
 }
 
 void RickTitleState::draw()

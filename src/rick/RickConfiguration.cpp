@@ -9,6 +9,7 @@
 #include <rapidjson/ostreamwrapper.h>
 #include <rapidjson/prettywriter.h>
 
+#include <zzbgames/ExceptionBuilder.hpp>
 #include <zzbgames/rick/RickConfiguration.hpp>
 
 namespace zzbgames
@@ -37,7 +38,7 @@ void RickConfiguration::load(const std::string& filename)
 {
     std::ifstream stream(filename.c_str());
     if (!stream.good())
-        throw std::ios_base::failure("Failed to load configuration file " + filename);
+        throw ExceptionBuilder::iosFailureException("Failed to load configuration file", filename);
 
     rapidjson::IStreamWrapper wrapper(stream);
     rapidjson::Document document;
@@ -45,7 +46,7 @@ void RickConfiguration::load(const std::string& filename)
 
     if (document.HasMember("window") && document["window"].IsObject())
     {
-        const rapidjson::Value& window = document["window"];
+        const rapidjson::Value& window = document["window"].GetObject();
         if (window.HasMember("width") && window["width"].IsUint())
             m_windowWidth = window["width"].GetUint();
         if (window.HasMember("height") && window["height"].IsUint())
@@ -57,18 +58,16 @@ void RickConfiguration::load(const std::string& filename)
 
 void RickConfiguration::save(const std::string& filename) const
 {
-    rapidjson::Document document;
-    document.SetObject();
+    rapidjson::Document document(rapidjson::kObjectType);
 
-    rapidjson::Value window;
-    window.SetObject();
+    rapidjson::Value window(rapidjson::kObjectType);
     window.AddMember("width", m_windowWidth, document.GetAllocator());
     window.AddMember("height", m_windowHeight, document.GetAllocator());
     document.AddMember("window", window, document.GetAllocator());
 
     std::ofstream stream(filename.c_str());
     if (!stream.good())
-        throw std::ios_base::failure("Failed to save configuration file " + filename);
+        throw ExceptionBuilder::iosFailureException("Failed to save configuration file", filename);
 
     rapidjson::OStreamWrapper wrapper(stream);
     rapidjson::PrettyWriter<rapidjson::OStreamWrapper> writer(wrapper);

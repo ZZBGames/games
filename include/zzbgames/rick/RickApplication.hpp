@@ -10,6 +10,7 @@
 #include <SFML/Window/Event.hpp>
 
 #include <zzbgames/rick/RickConfiguration.hpp>
+#include <zzbgames/rick/RickHighscoreList.hpp>
 #include <zzbgames/rick/RickResources.hpp>
 #include <zzbgames/rick/RickStateStack.hpp>
 
@@ -35,6 +36,8 @@ public:
 protected:
     void loadConfiguration();
 
+    void loadHighscores();
+
     void loadTextures();
 
     void processEvents();
@@ -45,6 +48,8 @@ protected:
 
     void saveConfiguration() const;
 
+    void saveHighscores() const;
+
     void update(const sf::Time& time);
 
 protected:
@@ -53,6 +58,8 @@ protected:
     sf::Time m_timePerFrame;
 
     RickConfiguration m_configuration;
+
+    RickHighscoreList m_highscores;
 
     RickTextureManager m_textureManager;
 

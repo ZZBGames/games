@@ -39,6 +39,8 @@ template<typename ID, typename RESOURCE>
 const RESOURCE& ResourceManager<ID, RESOURCE>::getResource(const ID& id) const
 {
     auto resource = m_resources.find(id);
+    if (resource == m_resources.end())
+        throw ExceptionBuilder::invalidArgumentException("Unable to find resource");
 
     return *(resource->second);
 }
