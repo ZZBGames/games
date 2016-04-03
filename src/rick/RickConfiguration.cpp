@@ -10,6 +10,7 @@
 #include <rapidjson/prettywriter.h>
 
 #include <zzbgames/ExceptionBuilder.hpp>
+#include <zzbgames/JSONUtils.hpp>
 #include <zzbgames/rick/RickConfiguration.hpp>
 
 namespace zzbgames
@@ -47,10 +48,8 @@ void RickConfiguration::load(const std::string& filename)
     if (document.HasMember("window") && document["window"].IsObject())
     {
         const rapidjson::Value& window = document["window"].GetObject();
-        if (window.HasMember("width") && window["width"].IsUint())
-            m_windowWidth = window["width"].GetUint();
-        if (window.HasMember("height") && window["height"].IsUint())
-            m_windowHeight = window["height"].GetUint();
+        m_windowWidth = JSONUtils::getMember(window, "width", m_windowWidth);
+        m_windowHeight = JSONUtils::getMember(window, "height", m_windowHeight);
     }
 
     stream.close();
@@ -61,9 +60,9 @@ void RickConfiguration::save(const std::string& filename) const
     rapidjson::Document document(rapidjson::kObjectType);
 
     rapidjson::Value window(rapidjson::kObjectType);
-    window.AddMember("width", m_windowWidth, document.GetAllocator());
-    window.AddMember("height", m_windowHeight, document.GetAllocator());
-    document.AddMember("window", window, document.GetAllocator());
+    JSONUtils::addMember(document, window, "width", m_windowWidth);
+    JSONUtils::addMember(document, window, "height", m_windowHeight);
+    JSONUtils::addMember(document, "window", window);
 
     std::ofstream stream(filename.c_str());
     if (!stream.good())

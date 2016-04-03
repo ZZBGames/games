@@ -10,6 +10,7 @@
 #include <rapidjson/prettywriter.h>
 
 #include <zzbgames/ExceptionBuilder.hpp>
+#include <zzbgames/JSONUtils.hxx>
 #include <zzbgames/rick/RickHighscoreList.hpp>
 
 namespace zzbgames
@@ -71,19 +72,15 @@ void RickHighscoreList::load(const std::string& filename)
         const auto& highscores = document["highscores"].GetArray();
         if (highscores.Size() == m_maxSize)
         {
-            // rapidjson::SizeType i = 0; i < highscores.Size(); i++)
             for (auto it = highscores.Begin(); it != highscores.End(); ++it)
             {
                 if (it->IsObject())
                 {
                     const auto& highscore = it->GetObject();
-                    if ((highscore.HasMember("name") && highscore["name"].IsString()) &&
-                        (highscore.HasMember("score") && highscore["score"].IsUint64()))
-                    {
-                        const std::string& name(highscore["name"].GetString());
-                        unsigned long score = highscore["score"].GetUint64();
-                        addHighscore(RickHighscore(name, score));
-                    }
+                    const std::string& name = JSONUtils::getMember<std::string>(highscore, "name");
+                    const unsigned long& score = JSONUtils::getMember<unsigned long>(highscore, "score");
+
+                    addHighscore(RickHighscore(name, score));
                 }
             }
         }
@@ -101,16 +98,12 @@ void RickHighscoreList::save(const std::string& filename) const
     for (auto const& highscore : m_highscores)
     {
         rapidjson::Value highscoreJSON(rapidjson::kObjectType);
-
-        rapidjson::Value nameJSON(rapidjson::kStringType);
-        nameJSON.SetString(highscore.getName().c_str(), static_cast<unsigned int>(highscore.getName().size()),
-                           document.GetAllocator());
-        highscoreJSON.AddMember("name", nameJSON, document.GetAllocator());
-        highscoreJSON.AddMember("score", highscore.getScore(), document.GetAllocator());
+        JSONUtils::addMember(document, highscoreJSON, "name", highscore.getName());
+        JSONUtils::addMember(document, highscoreJSON, "score", highscore.getScore());
         highscores.PushBack(highscoreJSON, document.GetAllocator());
     }
 
-    document.AddMember("highscores", highscores, document.GetAllocator());
+    JSONUtils::addMember(document, "highscores", highscores);
 
     std::ofstream stream(filename.c_str());
     if (!stream.good())

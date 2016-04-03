@@ -2,6 +2,7 @@
 // Created by mathbagu on 12/03/16.
 //
 
+#include <zzbgames/ExceptionBuilder.hxx>
 #include <zzbgames/rick/RickApplication.hpp>
 #include <zzbgames/rick/RickHallOfFameState.hpp>
 #include <zzbgames/rick/RickStates.hpp>
@@ -9,6 +10,15 @@
 
 namespace zzbgames
 {
+
+// Template instantiation
+namespace ExceptionBuilder
+{
+
+template std::invalid_argument invalidArgumentException(const std::string& message,
+                                                        const rick::RickTextures::Id& value);
+
+}
 
 namespace rick
 {

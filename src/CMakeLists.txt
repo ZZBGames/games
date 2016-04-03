@@ -1,6 +1,5 @@
 set(RICK_SOURCES
     Dimension.cpp
-    ExceptionBuilder.cpp
     Insets.cpp
     State.cpp
     StateStack.cpp

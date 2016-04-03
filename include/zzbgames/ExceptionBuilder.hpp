@@ -12,15 +12,18 @@
 namespace zzbgames
 {
 
-class ExceptionBuilder
+namespace ExceptionBuilder
 {
-public:
-    static std::invalid_argument invalidArgumentException(const std::string& message);
 
-    static std::ios_base::failure iosFailureException(const std::string& message, const std::string filename);
+template<typename T>
+std::invalid_argument invalidArgumentException(const std::string& message, const T& value);
 
-    static std::out_of_range outOfRangeException(const std::string& message, long value, long minValue, long maxValue);
-};
+std::ios_base::failure iosFailureException(const std::string& message, const std::string filename);
+
+template<typename T>
+std::out_of_range outOfRangeException(const std::string& message, const T& value, const T& minValue, const T& maxValue);
+
+}
 
 }
 

@@ -40,7 +40,7 @@ const RESOURCE& ResourceManager<ID, RESOURCE>::getResource(const ID& id) const
 {
     auto resource = m_resources.find(id);
     if (resource == m_resources.end())
-        throw ExceptionBuilder::invalidArgumentException("Unable to find resource");
+        throw ExceptionBuilder::invalidArgumentException("Unable to find resource", id);
 
     return *(resource->second);
 }
@@ -54,6 +54,7 @@ void ResourceManager<ID, RESOURCE>::load(const ID& id, const std::string& filena
 
     m_resources.insert(std::make_pair(id, std::move(resource)));
 }
+
 
 }
 
