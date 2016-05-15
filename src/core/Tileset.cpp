@@ -101,7 +101,7 @@ std::unique_ptr<sf::Image> Tileset::getTileAsImage(unsigned long tileIndex) cons
 
     std::unique_ptr<sf::Image> image(new sf::Image());
     image->create(width, height);
-    image->copy(m_image, 0, 0);
+    image->copy(m_image, 0, 0, spriteArea);
 
     return image;
 }
