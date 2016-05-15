@@ -2,8 +2,8 @@
 // Created by mathbagu on 01/04/16.
 //
 
-#ifndef RICKDANGEROUS_DIMENSION_HPP
-#define RICKDANGEROUS_DIMENSION_HPP
+#ifndef ZZBGAMES_DIMENSION_HPP
+#define ZZBGAMES_DIMENSION_HPP
 
 #include <SFML/System/Vector2.hpp>
 
@@ -35,9 +35,10 @@ public:
 
 protected:
     unsigned long m_height;
+
     unsigned long m_width;
 };
 
 }
 
-#endif //RICKDANGEROUS_DIMENSION_HPP
+#endif //ZZBGAMES_DIMENSION_HPP

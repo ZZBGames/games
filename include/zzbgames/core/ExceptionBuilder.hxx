@@ -2,12 +2,12 @@
 // Created by mathbagu on 01/04/16.
 //
 
-#ifndef RICKDANGEROUS_EXCEPTIONBUILDER_HXX
-#define RICKDANGEROUS_EXCEPTIONBUILDER_HXX
+#ifndef ZZBGAMES_EXCEPTIONBUILDER_HXX
+#define ZZBGAMES_EXCEPTIONBUILDER_HXX
 
 #include <sstream>
 
-#include <zzbgames/ExceptionBuilder.hpp>
+#include <zzbgames/core/ExceptionBuilder.hpp>
 
 namespace zzbgames
 {
@@ -56,4 +56,4 @@ template std::out_of_range outOfRangeException(const std::string& message, const
 
 }
 
-#endif //RICKDANGEROUS_EXCEPTIONBUILDER_HXX
+#endif //ZZBGAMES_EXCEPTIONBUILDER_HXX

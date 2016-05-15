@@ -2,13 +2,13 @@
 // Created by mathbagu on 03/04/16.
 //
 
-#ifndef RICKDANGEROUS_JSONUTILS_HXX
-#define RICKDANGEROUS_JSONUTILS_HXX
+#ifndef ZZBGAMES_JSONUTILS_HXX
+#define ZZBGAMES_JSONUTILS_HXX
 
 #include <string>
 
-#include <zzbgames/ExceptionBuilder.hpp>
-#include <zzbgames/JSONUtils.hpp>
+#include <zzbgames/core/ExceptionBuilder.hpp>
+#include <zzbgames/core/JSONUtils.hpp>
 
 namespace zzbgames
 {
@@ -107,4 +107,4 @@ template unsigned long getMember(const rapidjson::Value& object, const std::stri
 
 }
 
-#endif //RICKDANGEROUS_JSONUTILS_HXX
+#endif //ZZBGAMES_JSONUTILS_HXX

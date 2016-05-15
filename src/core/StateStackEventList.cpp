@@ -2,8 +2,8 @@
 // Created by mathbagu on 19/03/16.
 //
 
-#include <zzbgames/StateStackEvent.hpp>
-#include <zzbgames/StateStackEventList.hpp>
+#include <zzbgames/core/StateStackEvent.hpp>
+#include <zzbgames/core/StateStackEventList.hpp>
 
 namespace zzbgames
 {

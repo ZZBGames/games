@@ -2,7 +2,7 @@
 // Created by mathbagu on 12/03/16.
 //
 
-#include <zzbgames/ExceptionBuilder.hxx>
+#include <zzbgames/core/ExceptionBuilder.hxx>
 #include <zzbgames/rick/RickApplication.hpp>
 #include <zzbgames/rick/RickHallOfFameState.hpp>
 #include <zzbgames/rick/RickStates.hpp>

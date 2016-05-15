@@ -2,8 +2,8 @@
 // Created by mathbagu on 01/04/16.
 //
 
-#ifndef RICKDANGEROUS_INSETS_HPP
-#define RICKDANGEROUS_INSETS_HPP
+#ifndef ZZBGAMES_INSETS_HPP
+#define ZZBGAMES_INSETS_HPP
 
 namespace zzbgames
 {
@@ -39,11 +39,14 @@ public:
 
 protected:
     unsigned long m_bottom;
+
     unsigned long m_left;
+
     unsigned long m_right;
+
     unsigned long m_top;
 };
 
 }
 
-#endif //RICKDANGEROUS_INSETS_HPP
+#endif //ZZBGAMES_INSETS_HPP

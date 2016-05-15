@@ -3,4 +3,4 @@ set(RICK_IMAGES
     images/tileset.png
     images/titleScreen.png)
 
-install(FILES ${RICK_IMAGES} DESTINATION images)
+install(FILES ${RICK_IMAGES} DESTINATION rick/images)

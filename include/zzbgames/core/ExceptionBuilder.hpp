@@ -2,8 +2,8 @@
 // Created by mathbagu on 01/04/16.
 //
 
-#ifndef RICKDANGEROUS_EXCEPTIONBUILDER_HPP
-#define RICKDANGEROUS_EXCEPTIONBUILDER_HPP
+#ifndef ZZBGAMES_EXCEPTIONBUILDER_HPP
+#define ZZBGAMES_EXCEPTIONBUILDER_HPP
 
 #include <ios>
 #include <stdexcept>
@@ -27,4 +27,4 @@ std::out_of_range outOfRangeException(const std::string& message, const T& value
 
 }
 
-#endif //RICKDANGEROUS_EXCEPTIONBUILDER_HPP
+#endif //ZZBGAMES_EXCEPTIONBUILDER_HPP

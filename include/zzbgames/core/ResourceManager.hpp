@@ -2,15 +2,15 @@
 // Created by mathbagu on 19/03/16.
 //
 
-#ifndef RICKDANGEROUS_RESOURCEMANAGER_HPP
-#define RICKDANGEROUS_RESOURCEMANAGER_HPP
+#ifndef ZZBGAMES_RESOURCEMANAGER_HPP
+#define ZZBGAMES_RESOURCEMANAGER_HPP
 
 #include <ios>
 #include <map>
 #include <memory>
 #include <string>
 
-#include <zzbgames/ExceptionBuilder.hpp>
+#include <zzbgames/core/ExceptionBuilder.hpp>
 
 namespace zzbgames
 {
@@ -58,4 +58,4 @@ void ResourceManager<ID, RESOURCE>::load(const ID& id, const std::string& filena
 
 }
 
-#endif //RICKDANGEROUS_RESOURCEMANAGER_HPP
+#endif //ZZBGAMES_RESOURCEMANAGER_HPP

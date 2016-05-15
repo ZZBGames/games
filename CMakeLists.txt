@@ -1,15 +1,15 @@
 cmake_minimum_required(VERSION 3.0)
-project(rickdangerous)
+project(games)
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
-set(RICK_MAJOR_VERSION "0")
-set(RICK_MINOR_VERSION "0")
-set(RICK_PATCH_VERSION "1")
-set(RICK_VERSION_STRING "${RICK_MAJOR_VERSION}.${RICK_MINOR_VERSION}.${RICK_PATCH_VERSION}")
+# Build games
+set(BUILD_RICK TRUE CACHE BOOL "Build Rick Dangerous.")
+set(BUILD_TESTS TRUE CACHE BOOL "Build tests.")
 
 find_package(SFML)
 find_package(Rapidjson)
+find_package(GTest)
 
 if (NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE "RelWithDebInfo" CACHE STRING "Choose the type of build, options are: Debug Release RelWithDebInfo MinSizeRel." FORCE)
@@ -26,14 +26,18 @@ elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Werror -std=c++11")
 endif ()
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Werror=unused-parameter")
-
-set(BIN_INSTALL_DIR "${CMAKE_INSTALL_PREFIX}/bin" CACHE PATH "The directory the executables are installed in.")
-set(INCLUDE_INSTALL_DIR "${CMAKE_INSTALL_PREFIX}/include" CACHE PATH "The directory the headers are installed in.")
-set(LIB_INSTALL_DIR "${CMAKE_INSTALL_PREFIX}/lib" CACHE STRING "The directory the libraries are installed in.")
-
+include_directories(${SFML_INCLUDE_DIR})
+include_directories(${RAPIDJSON_INCLUDE_DIRS})
+include_directories(${GTEST_INCLUDE_DIRS})
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 
-add_subdirectory(src)
-add_subdirectory(res)
-add_subdirectory(config)
+if (BUILD_RICK)
+    add_subdirectory(src/core)
+    add_subdirectory(src/rick)
+    add_subdirectory(config/rick)
+    add_subdirectory(res/rick)
+endif ()
+
+if (BUILD_TESTS)
+    add_subdirectory(test)
+endif ()

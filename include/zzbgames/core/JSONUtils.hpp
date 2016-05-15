@@ -2,8 +2,8 @@
 // Created by mathbagu on 03/04/16.
 //
 
-#ifndef RICKDANGEROUS_JSONUTILS_HPP
-#define RICKDANGEROUS_JSONUTILS_HPP
+#ifndef ZZBGAMES_JSONUTILS_HPP
+#define ZZBGAMES_JSONUTILS_HPP
 
 #include <rapidjson/allocators.h>
 #include <rapidjson/document.h>
@@ -29,4 +29,4 @@ T getMember(const rapidjson::Value& object, const std::string& name, const T& de
 
 }
 
-#endif //RICKDANGEROUS_JSONUTILS_HPP
+#endif //ZZBGAMES_JSONUTILS_HPP

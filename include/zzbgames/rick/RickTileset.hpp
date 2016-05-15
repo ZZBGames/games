@@ -7,7 +7,7 @@
 
 #include <SFML/Graphics/Texture.hpp>
 
-#include <zzbgames/Tileset.hpp>
+#include <zzbgames/core/Tileset.hpp>
 
 namespace zzbgames
 {

@@ -2,13 +2,13 @@
 // Created by mathbagu on 19/03/16.
 //
 
-#ifndef RICKDANGEROUS_STATESTACKEVENTLIST_HPP
-#define RICKDANGEROUS_STATESTACKEVENTLIST_HPP
+#ifndef ZZBGAMES_STATESTACKEVENTLIST_HPP
+#define ZZBGAMES_STATESTACKEVENTLIST_HPP
 
 #include <memory>
 #include <vector>
 
-#include <zzbgames/StateStackEvent.hpp>
+#include <zzbgames/core/StateStackEvent.hpp>
 
 namespace zzbgames
 {
@@ -43,4 +43,4 @@ protected:
 
 }
 
-#endif //RICKDANGEROUS_STATESTACKEVENTLIST_HPP
+#endif //ZZBGAMES_STATESTACKEVENTLIST_HPP

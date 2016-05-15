@@ -7,7 +7,7 @@
 
 #include <SFML/Graphics/Texture.hpp>
 
-#include <zzbgames/ResourceManager.hpp>
+#include <zzbgames/core/ResourceManager.hpp>
 
 namespace zzbgames
 {

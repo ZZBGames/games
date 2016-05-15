@@ -5,7 +5,7 @@
 #ifndef RICKDANGEROUS_RICKSTATE_HPP
 #define RICKDANGEROUS_RICKSTATE_HPP
 
-#include <zzbgames/State.hpp>
+#include <zzbgames/core/State.hpp>
 #include <zzbgames/rick/RickContext.hpp>
 #include <zzbgames/rick/RickStateStack.hpp>
 

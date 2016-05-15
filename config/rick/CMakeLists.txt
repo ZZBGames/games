@@ -2,4 +2,4 @@ set(RICK_CONFIG
     highscores.cfg
     rickdangerous.cfg)
 
-install(FILES ${RICK_CONFIG} DESTINATION config)
+install(FILES ${RICK_CONFIG} DESTINATION rick/config)

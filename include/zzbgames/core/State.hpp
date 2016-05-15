@@ -2,8 +2,8 @@
 // Created by mathbagu on 19/03/16.
 //
 
-#ifndef RICKDANGEROUS_STATE_HPP
-#define RICKDANGEROUS_STATE_HPP
+#ifndef ZZBGAMES_STATE_HPP
+#define ZZBGAMES_STATE_HPP
 
 #include <memory>
 
@@ -44,4 +44,4 @@ protected:
 
 }
 
-#endif //RICKDANGEROUS_STATE_HPP
+#endif //ZZBGAMES_STATE_HPP

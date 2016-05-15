@@ -2,8 +2,8 @@
 // Created by mathbagu on 19/03/16.
 //
 
-#ifndef RICKDANGEROUS_STATESTACK_HPP
-#define RICKDANGEROUS_STATESTACK_HPP
+#ifndef ZZBGAMES_STATESTACK_HPP
+#define ZZBGAMES_STATESTACK_HPP
 
 #include <map>
 #include <memory>
@@ -12,8 +12,8 @@
 #include <SFML/System/Time.hpp>
 #include <SFML/Window/Event.hpp>
 
-#include <zzbgames/State.hpp>
-#include <zzbgames/StateStackEventList.hpp>
+#include <zzbgames/core/State.hpp>
+#include <zzbgames/core/StateStackEventList.hpp>
 
 namespace zzbgames
 {
@@ -56,4 +56,4 @@ protected:
 
 }
 
-#endif //RICKDANGEROUS_STATESTACK_HPP
+#endif //ZZBGAMES_STATESTACK_HPP

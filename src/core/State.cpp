@@ -2,7 +2,7 @@
 // Created by mathbagu on 19/03/16.
 //
 
-#include <zzbgames/State.hpp>
+#include <zzbgames/core/State.hpp>
 
 namespace zzbgames
 {

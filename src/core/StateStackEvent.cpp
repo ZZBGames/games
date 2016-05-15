@@ -2,7 +2,7 @@
 // Created by mathbagu on 19/03/16.
 //
 
-#include <zzbgames/StateStackEvent.hpp>
+#include <zzbgames/core/StateStackEvent.hpp>
 
 namespace zzbgames
 {

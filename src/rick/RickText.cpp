@@ -5,7 +5,7 @@
 #include <SFML/System/Vector2.hpp>
 
 #include <zzbgames/rick/RickText.hpp>
-#include <zzbgames/ExceptionBuilder.hpp>
+#include <zzbgames/core/ExceptionBuilder.hpp>
 
 namespace zzbgames
 {
@@ -41,7 +41,7 @@ RickText::RickText(const std::string& text, const RickTileset& tileset)
 
     for (unsigned int index = 0; index < text.size(); ++index)
     {
-        const sf::Vector2f& tile = m_tileset.getTile(characterToTileIndex(text.at(index)));
+        const sf::IntRect& tile = m_tileset.getTileAsRect(characterToTileIndex(text.at(index)));
 
         sf::Vertex* quad = &m_vertices[index * 4];
 
@@ -50,10 +50,10 @@ RickText::RickText(const std::string& text, const RickTileset& tileset)
         quad[2].position = sf::Vector2f((index + 1) * tileSize.getWidth(), tileSize.getHeight());
         quad[3].position = sf::Vector2f(index * tileSize.getWidth(), tileSize.getHeight());
 
-        quad[0].texCoords = sf::Vector2f(tile.x, tile.y);
-        quad[1].texCoords = sf::Vector2f(tile.x + tileSize.getWidth(), tile.y);
-        quad[2].texCoords = sf::Vector2f(tile.x + tileSize.getWidth(), tile.y + tileSize.getHeight());
-        quad[3].texCoords = sf::Vector2f(tile.x, tile.y + tileSize.getHeight());
+        quad[0].texCoords = sf::Vector2f(tile.left, tile.top);
+        quad[1].texCoords = sf::Vector2f(tile.left + tile.width, tile.top);
+        quad[2].texCoords = sf::Vector2f(tile.left + tile.width, tile.top + tile.height);
+        quad[3].texCoords = sf::Vector2f(tile.left, tile.top + tile.height);
     }
 }
 

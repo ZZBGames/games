@@ -2,7 +2,7 @@
 // Created by mathbagu on 01/04/16.
 //
 
-#include <zzbgames/Dimension.hpp>
+#include <zzbgames/core/Dimension.hpp>
 
 namespace zzbgames
 {
@@ -32,6 +32,21 @@ unsigned long Dimension::getHeight() const
 unsigned long Dimension::getWidth() const
 {
     return m_width;
+}
+
+Dimension& Dimension::setHeight(unsigned long height)
+{
+    m_height = height;
+
+    return *this;
+}
+
+
+Dimension& Dimension::setWidth(unsigned long width)
+{
+    m_width = width;
+
+    return *this;
 }
 
 }

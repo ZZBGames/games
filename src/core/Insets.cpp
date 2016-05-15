@@ -2,7 +2,7 @@
 // Created by mathbagu on 01/04/16.
 //
 
-#include <zzbgames/Insets.hpp>
+#include <zzbgames/core/Insets.hpp>
 
 namespace zzbgames
 {
@@ -38,6 +38,34 @@ unsigned long Insets::getRight() const
 unsigned long Insets::getTop() const
 {
     return m_top;
+}
+
+Insets& Insets::setBottom(unsigned long bottom)
+{
+    m_bottom = bottom;
+
+    return *this;
+}
+
+Insets& Insets::setLeft(unsigned long left)
+{
+    m_left = left;
+
+    return *this;
+}
+
+Insets& Insets::setRight(unsigned long right)
+{
+    m_right = right;
+
+    return *this;
+}
+
+Insets& Insets::setTop(unsigned long top)
+{
+    m_top = top;
+
+    return *this;
 }
 
 }

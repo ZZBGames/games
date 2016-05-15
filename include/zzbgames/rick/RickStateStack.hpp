@@ -7,7 +7,7 @@
 
 #include <map>
 
-#include <zzbgames/StateStack.hpp>
+#include <zzbgames/core/StateStack.hpp>
 #include <zzbgames/rick/RickContext.hpp>
 
 namespace zzbgames

@@ -9,8 +9,8 @@
 #include <rapidjson/ostreamwrapper.h>
 #include <rapidjson/prettywriter.h>
 
-#include <zzbgames/ExceptionBuilder.hpp>
-#include <zzbgames/JSONUtils.hpp>
+#include <zzbgames/core/ExceptionBuilder.hpp>
+#include <zzbgames/core/JSONUtils.hpp>
 #include <zzbgames/rick/RickConfiguration.hpp>
 
 namespace zzbgames
