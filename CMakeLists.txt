@@ -5,6 +5,7 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
 # Build games
 set(BUILD_RICK TRUE CACHE BOOL "Build Rick Dangerous.")
+set(BUILD_TOOLS TRUE CACHE BOOL "Build tools.")
 set(BUILD_TESTS TRUE CACHE BOOL "Build tests.")
 
 find_package(SFML)
@@ -36,6 +37,10 @@ if (BUILD_RICK)
     add_subdirectory(src/rick)
     add_subdirectory(config/rick)
     add_subdirectory(res/rick)
+endif ()
+
+if (BUILD_TOOLS)
+    add_subdirectory(tools)
 endif ()
 
 if (BUILD_TESTS)
