@@ -3,9 +3,9 @@ if (NOT GTEST_FOUND)
 endif ()
 
 set(UNIT_TEST_SOURCES
-    DimensionTest.cpp
-    InsetsTest.cpp
-    TilesetTest.cpp)
+    core/DimensionTest.cpp
+    core/InsetsTest.cpp
+    core/TilesetTest.cpp)
 
 add_executable(unittest ${UNIT_TEST_SOURCES})
 target_link_libraries(unittest gtest_main pthread gtest zzb-core)
